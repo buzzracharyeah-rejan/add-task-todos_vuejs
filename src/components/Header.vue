@@ -6,13 +6,13 @@
 </template>
 
 <script>
-import Button from "./Button";
+import Button from './Button';
 export default {
-  name: "Header",
+  name: 'Header',
   props: {
     title: {
       type: String,
-      default: "say hi from the other wrold",
+      default: 'say hi from the other wrold',
     },
   },
   components: {

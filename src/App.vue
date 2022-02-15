@@ -1,20 +1,23 @@
 <template>
   <div class="container">
     <Header title="Task Tracker" />
-    <Tasks @delete-task="handleDelete" :tasks="tasks" />
+    <AddTask @add-task="addTask" />
+    <Tasks @delete-task="handleDelete" @toggle-reminder="handleToggleReminder" :tasks="tasks" />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header";
-import Tasks from "./components/Tasks";
+import Header from './components/Header';
+import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
 
-import { tasks } from "./constants/tasks";
+import { tasks } from './constants/tasks';
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Header,
     Tasks,
+    AddTask,
   },
   data() {
     return {
@@ -26,21 +29,30 @@ export default {
   },
   methods: {
     handleDelete(id) {
-      console.log(id);
+      if (confirm('Are you sure?')) this.tasks = this.tasks.filter((task) => task.id !== id);
+    },
+    handleToggleReminder(id) {
+      const index = this.tasks.findIndex((task) => task.id === id);
+      //? toggle reminder for tasks
+      this.tasks[index].reminder = !this.tasks[index].reminder;
+      // this.tasks[index] = {...this.tasks[index], reminder: !this.tasks[index].reminder};
+    },
+    addTask(task) {
+      this.tasks.push(task)
     },
   },
 };
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .container {
   max-width: 500px;

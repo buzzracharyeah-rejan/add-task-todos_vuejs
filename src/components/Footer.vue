@@ -1,13 +1,13 @@
 <template>
   <footer>
     <h4>footer</h4>
-    <p>{{text}}</p>
+    <p>{{ text }}</p>
   </footer>
 </template>
 
 <script>
 export default {
-  name: "Footer",
+  name: 'Footer',
   props: {
     text: String,
   },

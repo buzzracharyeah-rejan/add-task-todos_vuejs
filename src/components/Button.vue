@@ -4,14 +4,14 @@
 
 <script>
 export default {
-  name: "Button",
+  name: 'Button',
   props: {
     text: String,
     color: String,
   },
   methods: {
     handleClick() {
-      console.log("button clicked");
+      console.log('button clicked');
     },
   },
 };
