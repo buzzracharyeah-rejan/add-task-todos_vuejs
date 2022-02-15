@@ -1,23 +1,33 @@
 <template>
   <div class="container">
     <Header title="Task Tracker" />
-    <Button text="add task" color="green" />
-    <Button text="update task" color="blue" />
-    <Button text="delete task" color="red" />
-    <Footer text="welcome to the landing page" />
+    <Tasks @delete-task="handleDelete" :tasks="tasks" />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-import Button from "./components/Button";
-import Footer from "./components/Footer";
+import Tasks from "./components/Tasks";
+
+import { tasks } from "./constants/tasks";
 export default {
   name: "App",
   components: {
     Header,
-    Button,
-    Footer,
+    Tasks,
+  },
+  data() {
+    return {
+      tasks: [],
+    };
+  },
+  created() {
+    this.tasks = tasks;
+  },
+  methods: {
+    handleDelete(id) {
+      console.log(id);
+    },
   },
 };
 </script>
@@ -40,6 +50,11 @@ body {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .btn {
   display: inline-block;
