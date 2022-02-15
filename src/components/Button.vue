@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click="handleClick" :style="{ backgroundColor: color }" class="btn">{{ text }}</button>
+  <button v-on:click="handleClick" :style="{ backgroundColor: color }" class="btn">{{ !show ? 'Add Task' : 'Hide Form' }}</button>
 </template>
 
 <script>
@@ -8,11 +8,14 @@ export default {
   props: {
     text: String,
     color: String,
+    show: Boolean
   },
   methods: {
     handleClick() {
-      console.log('button clicked');
+      // console.log('button clicked')
+      this.$emit('add-task-toggle');
     },
   },
+  emits: ['add-task-toggle']
 };
 </script>

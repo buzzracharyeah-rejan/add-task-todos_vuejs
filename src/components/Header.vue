@@ -1,7 +1,7 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <Button text="Add Task" color="green" />
+    <Button text="Add Task" color="green" @add-task-toggle="$emit('add-task-toggle')"  v-bind:show = 'show'/>
   </header>
 </template>
 
@@ -14,6 +14,7 @@ export default {
       type: String,
       default: 'say hi from the other wrold',
     },
+    show: Boolean
   },
   components: {
     Button,
