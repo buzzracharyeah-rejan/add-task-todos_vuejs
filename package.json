@@ -5,10 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint", 
+    "json-server": "json-server --watch src/constants/tasks.json --port 5000"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "global": "^4.4.0",
+    "json-server": "^0.17.0",
+    "serve": "^13.0.2",
     "uuid": "^8.3.2",
     "vue": "^3.0.0"
   },
