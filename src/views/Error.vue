@@ -1,9 +1,9 @@
 <template>
-  <h1>post detail component</h1>
+  <h4>Error Page</h4>
 </template>
 
 <script>
 export default {
-  name: 'PostDetail',
+  name: 'Error',
 };
 </script>
