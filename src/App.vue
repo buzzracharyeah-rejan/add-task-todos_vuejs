@@ -1,15 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Navbar />
+  <router-view />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/Navbar'
 
 export default {
   name: 'App',
+  provide: {
+    posts: [
+      {id: '1', title: 'post 1', body: 'test post 1', ownerId: '1'},
+      {id: '2', title: 'post 2', body: 'test post 2', ownerId: '2'},
+      {id: '3', title: 'post 3', body: 'test post 3', ownerId: '3'},
+      {id: '4', title: 'post 1', body: 'test post 1', ownerId: '1'},
+    ], 
+    users: [
+      {id: '1', username: 'test', email: 'test@test.com'},
+      {id: '2', username: 'test', email: 'test@test.com'},
+      {id: '3', username: 'test', email: 'test@test.com'},
+    ]
+  }, 
   components: {
-    HelloWorld
+    Navbar 
   }
 }
 </script>
